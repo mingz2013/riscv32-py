@@ -45,7 +45,7 @@ def parse(b):
 
 
 def read_file():
-    with open('./hello/hello.o.bin', 'rb') as f:
+    with open('./hello/hello.bin', 'rb') as f:
         index = 20
         count = 0
         while True:
