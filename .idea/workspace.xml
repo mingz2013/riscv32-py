@@ -2,20 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa4a3548-ab54-449d-a7db-6f438c417ad8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hello/hello.o.objdump.s" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hello/hello.objdump.s" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1.s" beforeDir="false" afterPath="$PROJECT_DIR$/1.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/hello/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/hello" beforeDir="false" afterPath="$PROJECT_DIR$/hello/hello" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/hello.bin" beforeDir="false" afterPath="$PROJECT_DIR$/hello/hello.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/hello.c" beforeDir="false" afterPath="$PROJECT_DIR$/hello/hello.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/hello.i" beforeDir="false" afterPath="$PROJECT_DIR$/hello/hello.i" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/hello.o" beforeDir="false" afterPath="$PROJECT_DIR$/hello/hello.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/hello.o.bin" beforeDir="false" afterPath="$PROJECT_DIR$/hello/hello.o.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/hello.s" beforeDir="false" afterPath="$PROJECT_DIR$/hello/hello.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello/s.s" beforeDir="false" afterPath="$PROJECT_DIR$/hello/s.s" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cpu/cpu.py" beforeDir="false" afterPath="$PROJECT_DIR$/cpu/cpu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cpu/exu.py" beforeDir="false" afterPath="$PROJECT_DIR$/cpu/exu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cpu/ifu.py" beforeDir="false" afterPath="$PROJECT_DIR$/cpu/ifu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cpu/mem.py" beforeDir="false" afterPath="$PROJECT_DIR$/cpu/mem.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cpu/register_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/cpu/register_file.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/memory/memory.py" beforeDir="false" afterPath="$PROJECT_DIR$/memory/memory.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/read_bin.py" beforeDir="false" afterPath="$PROJECT_DIR$/read_bin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple/instructions.py" beforeDir="false" afterPath="$PROJECT_DIR$/simple/instructions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple/register.py" beforeDir="false" afterPath="$PROJECT_DIR$/simple/register.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/simple/simple.py" beforeDir="false" afterPath="$PROJECT_DIR$/simple/simple.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,15 +48,9 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
   <component name="RunManager" selected="Python.read_bin">
-    <configuration name="Makefile (1)" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="" workingDirectory="" arguments="">
-        <envs />
-      </makefile>
-      <method v="2" />
-    </configuration>
     <configuration name="Makefile (2)" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
       <makefile filename="$PROJECT_DIR$/hello/Makefile" target="" workingDirectory="" arguments="">
         <envs />
@@ -71,6 +61,28 @@
       <makefile filename="$PROJECT_DIR$/Makefile" target="" workingDirectory="" arguments="">
         <envs />
       </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="memory" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="riscv32-py" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/memory" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/memory/memory.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
     <configuration name="read_bin" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -117,10 +129,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.read_bin" />
+        <item itemvalue="Python.memory" />
         <item itemvalue="Makefile.Makefile (3)" />
         <item itemvalue="Python.simple" />
         <item itemvalue="Makefile.Makefile (2)" />
-        <item itemvalue="Makefile.Makefile (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -152,7 +164,7 @@
       <workItem from="1579916709327" duration="353000" />
       <workItem from="1580014347561" duration="10591000" />
       <workItem from="1580028876573" duration="10066000" />
-      <workItem from="1580042122719" duration="8203000" />
+      <workItem from="1580042122719" duration="18633000" />
     </task>
     <task id="LOCAL-00001" summary="riscv32">
       <created>1580027474445</created>
@@ -182,7 +194,35 @@
       <option name="project" value="LOCAL" />
       <updated>1580048233735</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="riscv32">
+      <created>1580051234577</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1580051234577</updated>
+    </task>
+    <task id="LOCAL-00006" summary="riscv32">
+      <created>1580052235037</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1580052235038</updated>
+    </task>
+    <task id="LOCAL-00007" summary="riscv32">
+      <created>1580054088507</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1580054088507</updated>
+    </task>
+    <task id="LOCAL-00008" summary="riscv32">
+      <created>1580054275067</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1580054275067</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,45 +237,45 @@
       <screen x="64" y="23" width="1376" height="877" />
     </state>
     <state x="491" y="271" key="#com.intellij.fileTypes.FileTypeChooser/64.23.1376.877@64.23.1376.877" timestamp="1580047830433" />
-    <state x="303" y="52" key="CommitChangelistDialog2" timestamp="1580048233584">
+    <state x="303" y="52" key="CommitChangelistDialog2" timestamp="1580054274938">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="303" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1580048233584" />
+    <state x="303" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1580054274938" />
     <state x="0" y="0" width="1440" height="900" maximized="true" key="DiffContextDialog" timestamp="1580048230424">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="0" y="0" width="1440" height="900" maximized="true" key="DiffContextDialog/64.23.1376.877@64.23.1376.877" timestamp="1580048063900" />
-    <state width="1398" height="237" key="GridCell.Tab.0.bottom" timestamp="1580049800328">
+    <state width="1398" height="262" key="GridCell.Tab.0.bottom" timestamp="1580057027462">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="237" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1580049800328" />
-    <state width="1398" height="237" key="GridCell.Tab.0.center" timestamp="1580049800327">
+    <state width="1398" height="262" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1580057027462" />
+    <state width="1398" height="262" key="GridCell.Tab.0.center" timestamp="1580057027460">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="237" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1580049800327" />
-    <state width="1398" height="237" key="GridCell.Tab.0.left" timestamp="1580049800326">
+    <state width="1398" height="262" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1580057027460" />
+    <state width="1398" height="262" key="GridCell.Tab.0.left" timestamp="1580057027460">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="237" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1580049800326" />
-    <state width="1398" height="237" key="GridCell.Tab.0.right" timestamp="1580049800327">
+    <state width="1398" height="262" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1580057027460" />
+    <state width="1398" height="262" key="GridCell.Tab.0.right" timestamp="1580057027461">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="237" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1580049800327" />
-    <state x="221" y="89" key="SettingsEditor" timestamp="1580024905348">
+    <state width="1398" height="262" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1580057027461" />
+    <state x="221" y="89" key="SettingsEditor" timestamp="1580056440451">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1580024905348" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1580048240368">
+    <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1580056440451" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1580054280872">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1580048240368" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1580054280872" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/simple/instructions.py</url>
-          <line>407</line>
+          <line>472</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
@@ -243,5 +283,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/riscv32_py$simple.coverage" NAME="simple Coverage Results" MODIFIED="1580049665663" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/simple" />
+    <SUITE FILE_PATH="coverage/riscv32_py$memory.coverage" NAME="memory Coverage Results" MODIFIED="1580053928505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/memory" />
   </component>
 </project>

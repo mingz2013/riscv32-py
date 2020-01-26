@@ -16,12 +16,30 @@ class RegisterFile(object):
 
     def __init__(self):
         self.registers = [0] * 32
+        self._pc = 0x1c  # program counter
+        self._ir = 0  # instruction register
         self.reset()
+
+    def __setitem__(self, key, value):
+        self.registers[key] = value
+        self.registers[key] &= 0xffffffff
+
+    def __getitem__(self, item):
+        return self.registers[item]
 
     def reset(self):
         """
         初始化
         """
+
+    @property
+    def pc(self):
+        return self._pc
+
+    @pc.setter
+    def pc(self, i):
+        self._pc = i
+        self._pc &= 0xffffffff  # 保留32位
 
     @property
     def zero(self):

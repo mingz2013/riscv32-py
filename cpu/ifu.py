@@ -8,7 +8,6 @@ Module Description
 
 """
 
-
 class IFU(object):
     """
     取指单元
@@ -32,8 +31,16 @@ class IFU(object):
 
 
     """
+    def __init__(self, cpu):
+        self.cpu = cpu
 
     def instruction_fetch(self):
         """
         取指
         """
+        pc = self.cpu.registerFile.pc
+
+        self.cpu.registerFile.ir = self.cpu.mem.load_instruction(pc)
+
+        self.cpu.registerFile.pc += 4
+

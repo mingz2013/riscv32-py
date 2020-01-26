@@ -16,7 +16,7 @@ class Memory(object):
         self.memory = None
 
     def load_bin(self):
-        with open('../hello/hello.bin', 'rb') as f:
+        with open('./hello/hello.bin', 'rb') as f:
             # index = 5
             # while True:
             #     index -= 1
@@ -30,15 +30,24 @@ class Memory(object):
             self.memory = f.read()
 
     def load_instruction(self, pc):
-        b = m.memory[pc:pc + 4]
+        print("pc: ", pc)
+        b = self.memory[pc:pc + 4]
         i, = struct.unpack('<i', b)
         print(bin(i), hex(i))
         return i
 
+    def read_byte(self, pc, len=1):
+        print("pc: ", pc)
+        b = self.memory[pc:pc+len]
+        i, = struct.unpack('<i', b)
+        print(bin(i), hex(i))
+        return i
 
 if __name__ == '__main__':
-    m = Memory()
+    memory = Memory()
+    m = memory
     m.load_bin()
+
     print(m.memory)
     print(type(m.memory))
     # pc = 0x0000004c

@@ -8,6 +8,7 @@ Module Description
 
 """
 
+from simple import instructions
 
 class EXU(object):
     """
@@ -32,21 +33,39 @@ class EXU(object):
     浮点运算单元
 
     """
+    def __init__(self, cpu):
+        self.cpu = cpu
+
+    def _is_32bit_instruction(self, b):
+        """
+        32位的指令
+        """
+        print(b & 0b11)
+        if b & 0b11 != 0b11:  # 匹配11
+            return False
+
+        print(b & 0b11100)
+        if b & 0b11100 == 0b11100:  # 不匹配11100
+            return False
+
+        return True
 
 
-    def instruction_decode(self, IR):
+    def instruction_decode(self):
         """
         译码
 
         """
+        ir = self.cpu.registerFile.ir
 
+        if ir == 0:
+            print("b is 0...")
+            return
+        if not self._is_32bit_instruction(ir):
+            print('not 32 bit instruction', hex(ir))
+            return
 
-
-
-
-
-
-
+        self.cpu.rv32i.do_instruction(ir)
 
     def instruction_execute(self):
         """

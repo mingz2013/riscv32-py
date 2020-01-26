@@ -41,7 +41,7 @@ def parse(b):
         print('not 32 bit instruction', hex(b))
         return
 
-    instructions.do_instruction(b)
+    # instructions.do_instruction(b)
 
 
 def read_file():

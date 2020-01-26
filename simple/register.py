@@ -9,3 +9,7 @@ Module Description
 """
 
 
+class RegisterFile(object):
+    def __init__(self):
+        self.register_file = []
+        self.pc = 0x1c

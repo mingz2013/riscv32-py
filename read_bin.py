@@ -1,8 +1,11 @@
-from simple import simple
+from cpu.cpu import CPU
 
 
 def main():
-    simple.run()
+    # simple.run()
+
+    cpu = CPU()
+    cpu.run()
 
 
 if __name__ == '__main__':
