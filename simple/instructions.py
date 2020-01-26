@@ -171,7 +171,7 @@ class RV32I(object):
         log("lbu", register_abi(rd), hex(imm), register_abi(rs1))
         pc = self.cpu.registerFile[rs1] + imm
 
-        self.cpu.registerFile[rd] = self.cpu.mem.read_byte(pc)
+        self.cpu.registerFile[rd] = self.cpu.mem.read_byte(pc, 1)
 
     def lhu(self, rd, imm, rs1):
         """"""

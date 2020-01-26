@@ -237,10 +237,10 @@
       <screen x="64" y="23" width="1376" height="877" />
     </state>
     <state x="491" y="271" key="#com.intellij.fileTypes.FileTypeChooser/64.23.1376.877@64.23.1376.877" timestamp="1580047830433" />
-    <state x="303" y="52" key="CommitChangelistDialog2" timestamp="1580063188664">
+    <state x="303" y="52" key="CommitChangelistDialog2" timestamp="1580064016955">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="303" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1580063188664" />
+    <state x="303" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1580064016955" />
     <state x="0" y="0" width="1440" height="900" maximized="true" key="DiffContextDialog" timestamp="1580048230424">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -265,10 +265,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1580056440451" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1580063196004">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1580064021712">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1580063196004" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1580064021712" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
