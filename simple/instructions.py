@@ -225,34 +225,34 @@ def do_r_type(opcode, d):
 
     log("do_r_type <<", bin(funct3), bin(funct7))
 
-    if not opcode ^ 0b0110011:
-        if not funct3 ^ 0b000:
-            if not funct7 ^ 0b0000000:
+    if  opcode == 0b0110011:
+        if  funct3 == 0b000:
+            if  funct7 == 0b0000000:
                 return inst.add(rs1, rs2, rd)
-            if not funct7 ^ 0b0100000:
+            if  funct7 == 0b0100000:
                 return inst.sub(rs1, rs2, rd)
-        if not funct3 ^ 0b001:
-            if not funct7 ^ 0b0000000:
+        if funct3 == 0b001:
+            if  funct7 == 0b0000000:
                 return inst.sll(rs1, rs2, rd)
-        if not funct3 ^ 0b010:
-            if not funct7 ^ 0b0000000:
+        if funct3 == 0b010:
+            if funct7 == 0b0000000:
                 return inst.slt(rs1, rs2, rd)
-        if not funct3 ^ 0b011:
-            if not funct7 ^ 0b0000000:
+        if funct3 == 0b011:
+            if  funct7 == 0b0000000:
                 return inst.sltu(rs1, rs2, rd)
-        if not funct3 ^ 0b100:
-            if not funct7 ^ 0b0000000:
+        if  funct3 == 0b100:
+            if  funct7 == 0b0000000:
                 return inst.xor(rs1, rs2, rd)
-        if not funct3 ^ 0b101:
-            if not funct7 ^ 0b0000000:
+        if  funct3 == 0b101:
+            if  funct7 == 0b0000000:
                 return inst.srl(rs1, rs2, rd)
-            if not funct7 ^ 0b0100000:
+            if  funct7 == 0b0100000:
                 return inst.sra(rs1, rs2, rd)
-        if not funct3 ^ 0b110:
-            if not funct7 ^ 0b0000000:
+        if  funct3 == 0b110:
+            if  funct7 == 0b0000000:
                 return inst.or_(rs1, rs2, rd)
-        if not funct3 ^ 0b111:
-            if not funct7 ^ 0b0000000:
+        if  funct3 == 0b111:
+            if  funct7 == 0b0000000:
                 return inst.and_(rs1, rs2, rd)
 
     raise Exception(d)
@@ -267,48 +267,48 @@ def do_i_type(opcode, d):
     imm_11_0 = d >> 20 & 0b11111111111
     imm = imm_11_0
 
-    if not opcode ^ 0b1100111:
+    if  opcode == 0b1100111:
         return inst.jalr(rs1, rd, imm)
-    elif not opcode ^ 0b0000011:
-        if not funct3 ^ 0b000:
+    elif  opcode == 0b0000011:
+        if  funct3 == 0b000:
             return inst.lb(rs1, rd, imm)
-        elif not funct3 ^ 0b001:
+        elif  funct3 == 0b001:
             return inst.lh(rs1, rd, imm)
-        elif not funct3 ^ 0b010:
+        elif  funct3 == 0b010:
             return inst.lw(rs1, rd, imm)
-        elif not funct3 ^ 0b100:
+        elif  funct3 == 0b100:
             return inst.lbu(rs1, rd, imm)
-        elif not funct3 ^ 0b101:
+        elif  funct3 == 0b101:
             return inst.lhu(rs1, rd, imm)
-    elif not opcode ^ 0b0010011:
-        if not funct3 ^ 0b000:
+    elif  opcode == 0b0010011:
+        if  funct3 == 0b000:
             return inst.addi(rs1, rd, imm)
-        if not funct3 ^ 0b010:
+        if  funct3 == 0b010:
             return inst.slti(rs1, rd, imm)
-        if not funct3 ^ 0b011:
+        if  funct3 == 0b011:
             return inst.sltiu(rs1, rd, imm)
-        if not funct3 ^ 0b100:
+        if  funct3 == 0b100:
             return inst.xori(rs1, rd, imm)
-        if not funct3 ^ 0b110:
+        if  funct3 == 0b110:
             return inst.ori(rs1, rd, imm)
-        if not funct3 ^ 0b111:
+        if  funct3 == 0b111:
             return inst.andi(rs1, rd, imm)
-        if not funct3 ^ 0b001:
+        if  funct3 == 0b001:
             return inst.slli(rs1, rd, imm)
-        if not funct3 ^ 0b101:
+        if funct3 == 0b101:
             funct7 = imm >> 5
-            if not funct7 ^ 0b0000000:
+            if  funct7 == 0b0000000:
                 return inst.srli(rs1, rd)
-            elif not funct7 ^ 0b0100000:
+            elif  funct7 == 0b0100000:
                 return inst.srai(rs1, rd)
         pass
-    elif not opcode ^ 0b0001111:
+    elif  opcode == 0b0001111:
         fm, pred, succ = imm & 0b1111 << 8, imm & 0b1111 << 4, imm & 0b1111
         return inst.fence(rs1, rd, fm, pred, succ)
-    elif not opcode ^ 0b1110011:
-        if not imm ^ 0b0:
+    elif opcode == 0b1110011:
+        if  imm == 0b0:
             return inst.ecall()
-        elif not imm ^ 0b1:
+        elif imm == 0b1:
             return inst.ebreak()
 
     raise Exception(d)
@@ -324,12 +324,12 @@ def do_s_type(opcode, d):
     imm_11_5 = d >> 25 & 0b1111111
 
     imm = imm_11_5 << 5 + imm_4_0
-    if not opcode ^ 0b0100011:
-        if not funct3 ^ 0b000:
+    if opcode == 0b0100011:
+        if funct3 == 0b000:
             return inst.sb(rs1, rs2, imm)
-        elif not funct3 ^ 0b001:
+        elif funct3 == 0b001:
             return inst.sh(rs1, rs2, imm)
-        elif not funct3 ^ 0b010:
+        elif funct3 == 0b010:
             return inst.sw(rs1, rs2, imm)
 
     raise Exception(d)
@@ -350,18 +350,18 @@ def do_b_type(opcode, d):
     imm_10_5 = imm_12_10_5 & 0b111111
     imm = imm_4_1 << 1 + imm_11 << 11 + imm_12 << 12 + imm_10_5 << 5
 
-    if not opcode ^ 0b1100011:
-        if not funct3 ^ 0b000:
+    if opcode == 0b1100011:
+        if funct3 == 0b000:
             return inst.beq(rs1, rs2, imm)
-        elif not funct3 ^ 0b001:
+        elif funct3 == 0b001:
             return inst.bne(rs1, rs2, imm)
-        elif not funct3 ^ 0b100:
+        elif funct3 == 0b100:
             return inst.blt(rs1, rs2, imm)
-        elif not funct3 ^ 0b101:
+        elif funct3 == 0b101:
             return inst.bge(rs1, rs2, imm)
-        elif not funct3 ^ 0b110:
+        elif funct3 == 0b110:
             return inst.bltu(rs1, rs2, imm)
-        elif not funct3 ^ 0b111:
+        elif funct3 == 0b111:
             return inst.bgeu(rs1, rs2, imm)
 
     raise Exception(d)
@@ -375,9 +375,9 @@ def do_u_type(opcode, d):
 
     imm = imm_31_12
 
-    if not opcode ^ 0b0110111:
+    if opcode == 0b0110111:
         return inst.lui(rd, imm)
-    elif not opcode ^ 0b0010111:
+    elif opcode == 0b0010111:
         return inst.auipc(rd, imm)
 
     raise Exception(d)
@@ -391,7 +391,7 @@ def do_j_type(opcode, d):
 
     imm = imm_20_10_1_11_19_12
 
-    if not opcode ^ 0b1101111:
+    if opcode == 0b1101111:
         return inst.jal(rd, imm)
 
     raise Exception(d)
@@ -411,14 +411,10 @@ def do_instruction(d):
         0b0110011: do_r_type,
         0b0001111: do_i_type,
         0b1110011: do_i_type,
-
     }
 
-    for k, v in instructions_map.items():
-        # print("d & 0b1111111 = ", bin(d & 0b1111111))
-        # print("k = ", bin(k))
-        # print("d & 0b1111111 ^ k = ", bin(d & 0b1111111 ^ k))
-        if not d & 0b1111111 ^ k:
-            return v(k, d)
+    opcode = d & 0b1111111
+    f = instructions_map.get(opcode)
+    assert f, 'opcode error'
+    return f(opcode, d)
 
-    raise Exception(d)
