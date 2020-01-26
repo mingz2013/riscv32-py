@@ -9,7 +9,9 @@ Module Description
 """
 
 import struct
+
 from . import instructions
+
 registers = []
 
 
@@ -22,7 +24,7 @@ def is_32bit_instruction(b):
         return False
 
     print(b & 0b11100)
-    if b & 0b11100 == 0b11100:# 不匹配11100
+    if b & 0b11100 == 0b11100:  # 不匹配11100
         return False
 
     return True
@@ -47,7 +49,7 @@ def read_file():
         index = 20
         count = 0
         while True:
-        # while index > 0:
+            # while index > 0:
             index -= 1
             b = f.read(4)
             # print("b:", b)
@@ -67,6 +69,3 @@ def read_file():
 
 def run():
     read_file()
-
-
-
