@@ -18,9 +18,13 @@ def is_32bit_instruction(b):
     32位的指令
     """
     print(b & 0b11)
-    assert b & 0b11 == 0b11  # 匹配11
+    if b & 0b11 != 0b11:  # 匹配11
+        return False
+
     print(b & 0b11100)
-    assert b & 0b11100 != 0b11100  # 不匹配11100
+    if b & 0b11100 == 0b11100:# 不匹配11100
+        return False
+
     return True
 
 
@@ -31,7 +35,9 @@ def parse(b):
     if b == 0:
         print("b is 0...")
         return
-    assert is_32bit_instruction(b)
+    if not is_32bit_instruction(b):
+        print('not 32 bit instruction', hex(b))
+        return
 
     instructions.do_instruction(b)
 
