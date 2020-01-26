@@ -48,7 +48,7 @@ class CPU(object):
         """
         index = 0
         while True:
-            if index > 10:
+            if index > 100:
                 break
             index += 1
             log("count: ", index)

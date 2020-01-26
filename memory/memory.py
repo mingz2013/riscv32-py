@@ -38,10 +38,15 @@ class Memory(object):
 
     def read_byte(self, pc, len=1):
         print("pc: ", pc)
-        b = self.memory[pc:pc+len]
+        b = self.memory[pc:pc + len]
         i, = struct.unpack('<i', b)
         print(bin(i), hex(i))
         return i
+
+    def write_byte(self, addr, b):
+        for i in range(len(b)):
+            self.memory[addr + i] = b[i]
+
 
 if __name__ == '__main__':
     memory = Memory()
@@ -51,8 +56,5 @@ if __name__ == '__main__':
     print(m.memory)
     print(type(m.memory))
     # pc = 0x0000004c
-    pc = 0x1c # offset = 0x10090 - 0x10074, 根据汇编代码的偏移，计算偏移，copy出代码段后，用0+offset = 0x1c， eip
+    pc = 0x1c  # offset = 0x10090 - 0x10074, 根据汇编代码的偏移，计算偏移，copy出代码段后，用0+offset = 0x1c， eip
     i = m.load_instruction(pc)
-
-
-

@@ -80,6 +80,7 @@ class RV32I(object):
 
         """
         log("jal", register_abi(rd), hex(imm))
+        self.cpu.registerFile[rd] = self.cpu.registerFile.pc + 4
         self.cpu.registerFile.pc += imm
 
     def jalr(self, rd, imm, rs1=1):
@@ -87,8 +88,10 @@ class RV32I(object):
 
         """
         log("jalr", register_abi(rd), hex(imm), register_abi(rs1))
-        self.cpu.registerFile[rd] = self.cpu.registerFile.pc
+        t = self.cpu.registerFile.pc + 4
         self.cpu.registerFile.pc = self.cpu.registerFile[rs1] + imm
+        self.cpu.registerFile[rd] = t
+
 
     def beq(self, rs1, rs2, imm):
         """
@@ -491,7 +494,14 @@ class RV32I(object):
         rd = d >> 7 & 0b11111
         imm_20_10_1_11_19_12 = d >> 12 & 0b1111111111111111111
 
-        imm = imm_20_10_1_11_19_12
+        # imm = imm_20_10_1_11_19_12
+        imm_20 = imm_20_10_1_11_19_12 >> 19 & 0b1
+        imm_10_1 = imm_20_10_1_11_19_12 >> 9 & 0b1111111111
+        imm_11 = imm_20_10_1_11_19_12 >> 8 & 0b1
+        imm_19_12 = imm_20_10_1_11_19_12 & 0b11111111
+
+        imm = imm_20 << 20 + imm_19_12 << 12 + imm_11 << 11 + imm_10_1 << 1
+        imm >>= 1
 
         if opcode == 0b1101111:
             return self.jal(rd, imm)
