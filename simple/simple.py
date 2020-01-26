@@ -17,9 +17,9 @@ def is_32bit_instruction(b):
     """
     32位的指令
     """
-    print(b & 0b11 ^ 0b11)
+    # print(b & 0b11 ^ 0b11)
     assert not (b & 0b11 ^ 0b11)  # 匹配11
-    print(b & 0b11100 ^ 0b11100)
+    # print(b & 0b11100 ^ 0b11100)
     assert (b & 0b11100 ^ 0b11100)  # 不匹配11100
     return True
 
@@ -37,21 +37,23 @@ def parse(b):
 
 
 def read_file():
-    with open('./hello/hello.bin', 'rb') as f:
+    with open('./hello/hello.o.bin', 'rb') as f:
         index = 20
         count = 0
         while True:
         # while index > 0:
             index -= 1
             b = f.read(4)
-            print("b:", b)
+            # print("b:", b)
             if len(b) == 0:
                 print("over....b == 0")
                 break
             # print(type(b), len(b))
             i, = struct.unpack('<i', b)
-            print(i, type(i), bin(i), hex(i))
+            # print(i, type(i), bin(i), hex(i))
             # print(type(bin(i)))
+            if i == 0:
+                break
             parse(i)
             count += 1
             print("count ...", count)

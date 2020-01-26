@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa4a3548-ab54-449d-a7db-6f438c417ad8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/simple/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/simple/instructions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/simple/register.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/simple/simple.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/read_bin.py" beforeDir="false" afterPath="$PROJECT_DIR$/read_bin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/hello/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple/instructions.py" beforeDir="false" afterPath="$PROJECT_DIR$/simple/instructions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple/simple.py" beforeDir="false" afterPath="$PROJECT_DIR$/simple/simple.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +120,7 @@
       <workItem from="1579916709327" duration="353000" />
       <workItem from="1580014347561" duration="10591000" />
       <workItem from="1580028876573" duration="10066000" />
-      <workItem from="1580042122719" duration="2709000" />
+      <workItem from="1580042122719" duration="5650000" />
     </task>
     <task id="LOCAL-00001" summary="riscv32">
       <created>1580027474445</created>
@@ -131,7 +129,21 @@
       <option name="project" value="LOCAL" />
       <updated>1580027474445</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="riscv32">
+      <created>1580045009966</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1580045009966</updated>
+    </task>
+    <task id="LOCAL-00003" summary="riscv32">
+      <created>1580045776444</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1580045776444</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,10 +154,18 @@
     <option name="LAST_COMMIT_MESSAGE" value="riscv32" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="303" y="52" key="CommitChangelistDialog2" timestamp="1580027474305">
+    <state x="491" y="271" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1580047830433">
+      <screen x="64" y="23" width="1376" height="877" />
+    </state>
+    <state x="491" y="271" key="#com.intellij.fileTypes.FileTypeChooser/64.23.1376.877@64.23.1376.877" timestamp="1580047830433" />
+    <state x="303" y="52" key="CommitChangelistDialog2" timestamp="1580045776289">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="303" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1580027474305" />
+    <state x="303" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1580045776289" />
+    <state x="0" y="0" width="1440" height="900" maximized="true" key="DiffContextDialog" timestamp="1580048230424">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="0" y="0" width="1440" height="900" maximized="true" key="DiffContextDialog/64.23.1376.877@64.23.1376.877" timestamp="1580048063900" />
     <state width="1398" height="237" key="GridCell.Tab.0.bottom" timestamp="1580042106178">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -166,17 +186,17 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1580024905348" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1580028882129">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1580045016971">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1580028882129" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1580045016971" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/simple/instructions.py</url>
-          <line>369</line>
+          <line>407</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
