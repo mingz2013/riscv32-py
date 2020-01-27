@@ -19,6 +19,13 @@ def log(*args):
 
 
 def register_abi(r):
+    """
+    abi 翻译
+    :param r:
+    :type r:
+    :return:
+    :rtype:
+    """
     _register_abi = [
         'zero',
         'ra',
@@ -57,6 +64,10 @@ def register_abi(r):
 
 
 class RV32I(object):
+    """
+    rv32i 指令实现
+    """
+
     def __init__(self, cpu):
         self.cpu = cpu
 
@@ -601,6 +612,15 @@ class RV32I(object):
         raise Exception()
 
     def do_r_type(self, opcode, d):
+        """
+        r-type指令格式
+        :param opcode:
+        :type opcode:
+        :param d:
+        :type d:
+        :return:
+        :rtype:
+        """
         # log("do_r_type << ", bin(opcode), bin(d))
         # opcode = d & 0b1111111
         rd = d >> 7 & 0b11111
@@ -644,6 +664,15 @@ class RV32I(object):
         raise Exception(d)
 
     def do_i_type(self, opcode, d):
+        """
+        i-type指令格式
+        :param opcode:
+        :type opcode:
+        :param d:
+        :type d:
+        :return:
+        :rtype:
+        """
         # log("do_i_type", opcode, d)
         # opcode = d & 0b1111111
         rd = d >> 7 & 0b11111
@@ -699,6 +728,15 @@ class RV32I(object):
         raise Exception(d)
 
     def do_s_type(self, opcode, d):
+        """
+        s-type指令格式
+        :param opcode:
+        :type opcode:
+        :param d:
+        :type d:
+        :return:
+        :rtype:
+        """
         # log("do_s_type", opcode, d)
         # opcode = d & 0b1111111
         imm_4_0 = d >> 7 & 0b11111
@@ -719,6 +757,15 @@ class RV32I(object):
         raise Exception(d)
 
     def do_b_type(self, opcode, d):
+        """
+        b-type指令格式
+        :param opcode:
+        :type opcode:
+        :param d:
+        :type d:
+        :return:
+        :rtype:
+        """
         # log("do_b_type", opcode, d)
         # opcode = d & 0b1111111
         imm_4_1_11 = d >> 7 & 0b11111
@@ -750,6 +797,15 @@ class RV32I(object):
         raise Exception(d)
 
     def do_u_type(self, opcode, d):
+        """
+        u-type指令格式
+        :param opcode:
+        :type opcode:
+        :param d:
+        :type d:
+        :return:
+        :rtype:
+        """
         # log("do_u_type << ", bin(opcode), d)
         # opcode = d & 0b1111111
         rd = d >> 7 & 0b11111
@@ -765,6 +821,15 @@ class RV32I(object):
         raise Exception(d)
 
     def do_j_type(self, opcode, d):
+        """
+        j-type指令格式
+        :param opcode:
+        :type opcode:
+        :param d:
+        :type d:
+        :return:
+        :rtype:
+        """
         # log("do_j_type", opcode, d)
         # opcode = d & 0b1111111
         rd = d >> 7 & 0b11111
@@ -792,6 +857,13 @@ class RV32I(object):
         raise Exception(d)
 
     def do_instruction(self, d):
+        """
+        入口，解析执行指令
+        :param d:
+        :type d:
+        :return:
+        :rtype:
+        """
         print("do_instruction << ", hex(d), bin(d))
         instructions_map = {
             0b0110111: self.do_u_type,

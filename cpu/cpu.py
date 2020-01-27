@@ -34,8 +34,8 @@ class CPU(object):
         self.exu = EXU(self)  # 执行单元
         self.alu = ALU()
         self.lsu = LSU()
-        self.mem = MEM(self)
-        self.rv32i = RV32I(self)
+        self.mem = MEM(self)  # 内存管理
+        self.rv32i = RV32I(self)  # 指令集实现rv32i
 
     def reset(self):
         self.register_file.reset()
@@ -50,7 +50,7 @@ class CPU(object):
         """
         index = 0
         while True:
-            if index > 1000:
+            if index > 1100:
                 print("index .........break........", index)
                 self.mem.print_memory()
                 break

@@ -38,7 +38,7 @@ class EXU(object):
 
     def _is_32bit_instruction(self, b):
         """
-        32位的指令
+        32位的指令，验证
         """
         print(b & 0b11)
         if b & 0b11 != 0b11:  # 匹配11

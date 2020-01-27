@@ -39,6 +39,17 @@ class IFU(object):
     def instruction_fetch(self):
         """
         取指
+
+        自动从pc地址处读取 指令。
+
+        并将pc地址下移。
+
+        这里应当做预判断，如果是跳转或分支相关的指令，并不是默认地址下移。
+
+        所以在跳转和分支指令里面，需要先-4.
+
+
+
         """
         pc = self.cpu.register_file.pc
 
