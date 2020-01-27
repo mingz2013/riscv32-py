@@ -28,7 +28,7 @@ class RegisterFile(object):
         eip = 0x10090
         self._pc = eip  # 0x1c  # program counter
         self._ir = 0  # instruction register
-        self.sp = self.fp = 0x30000  # stack pointer, 栈顶指针, frame pointer 栈底指针
+        self.sp = self.fp = 0x20000  # stack pointer, 栈顶指针, frame pointer 栈底指针
 
     def __setitem__(self, key, value):
         if key == 0:

@@ -53,20 +53,25 @@ class MEM(object):
         print(">> load_instruction ir: ", i, bin(i), hex(i))
         return i
 
-    def read_byte(self, pc, len=1):
-        print("read_byte pc: ", hex(pc), ", len: ", len)
+    def read_byte(self, pc, length=1):
+        print("read_byte pc: ", hex(pc), ", length: ", length)
         if pc < 0:
             raise Exception('read addr < 0')
-        if pc + len >= self.max_len:
+        if pc + length >= self.max_len:
             print("pc > max len...warn")
             # raise Exception(pc, self.max_len)
-            while pc + len >= self.max_len:
+            while pc + length >= self.max_len:
                 self.memory.append(0)  # bytearay.append(n)
         # print(self.memory)
-        b = self.memory[pc:pc + len]
+        # b = bytearray(4)
+        b = self.memory[pc:pc + length]
         print("b: ", b)
-        i, = struct.unpack('<i', b)
+
+        bb = bytearray(b)
+        bbb = bytearray(4 - len(bb)) + bb
+        i, = struct.unpack('<i', bbb)
         print(bin(i), hex(i))
+        # i = b
         return i
 
     def write_byte(self, addr, b):
