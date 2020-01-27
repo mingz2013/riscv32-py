@@ -62,6 +62,28 @@ class Memory(object):
         for i in range(len(b)):
             self.memory[addr + i] = b[i]
 
+    def read_file(self):
+        with open('./hello/hello.bin', 'rb') as f:
+            index = 20
+            count = 0
+            while True:
+                # while index > 0:
+                index -= 1
+                b = f.read(4)
+                # print("b:", b)
+                if len(b) == 0:
+                    print("over....b == 0")
+                    break
+                # print(type(b), len(b))
+                i, = struct.unpack('<i', b)
+                print(i, type(i), bin(i), hex(i))
+                # print(type(bin(i)))
+                if i == 0:
+                    break
+                # parse(i)
+                count += 1
+                print("count ...", count)
+
 
 if __name__ == '__main__':
     memory = Memory()
