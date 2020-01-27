@@ -10,8 +10,6 @@ Module Description
 
 import struct
 
-from . import instructions
-
 registers = []
 
 

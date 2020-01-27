@@ -8,7 +8,6 @@ Module Description
 
 """
 
-from simple import instructions
 
 class EXU(object):
     """
@@ -33,6 +32,7 @@ class EXU(object):
     浮点运算单元
 
     """
+
     def __init__(self, cpu):
         self.cpu = cpu
 
@@ -49,7 +49,6 @@ class EXU(object):
             return False
 
         return True
-
 
     def instruction_decode(self):
         """
