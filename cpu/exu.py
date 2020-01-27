@@ -59,10 +59,11 @@ class EXU(object):
 
         if ir == 0:
             print("b is 0...")
+            raise Exception('b is 0')
             return
         if not self._is_32bit_instruction(ir):
             print('not 32 bit instruction', hex(ir))
-            return
+            raise Exception("error instruction", bin(ir))
 
         self.cpu.rv32i.do_instruction(ir)
 

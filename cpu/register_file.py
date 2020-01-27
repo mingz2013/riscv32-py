@@ -42,7 +42,7 @@ class RegisterFile(object):
     @pc.setter
     def pc(self, i):
         self._pc = i
-        # self._pc &= 0xffffffff  # 保留32位
+        self._pc &= 0xffffffff  # 保留32位
 
     @property
     def zero(self):

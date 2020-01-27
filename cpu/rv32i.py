@@ -15,7 +15,7 @@ Module Description
 def log(*args):
     # f_name = sys._getframe().f_code.co_name
     # f_name = sys._getframe().f_back.f_back.f_code.co_name
-    print("cmd--:=>", *args)
+    print("<< cmd--:======>", *args)
 
 
 def register_abi(r):
@@ -84,7 +84,7 @@ class RV32I(object):
         """
         log("auipc", register_abi(rd), hex(imm))
         # self.cpu.register_file.pc += imm << 12
-        self.cpu.register_file[rd] = self.cpu.register_file.pc + (imm << 12)
+        self.cpu.register_file[rd] = self.cpu.register_file.pc -4 + (imm << 12)
 
     def jal(self, rd, imm):
         """
@@ -95,8 +95,10 @@ class RV32I(object):
 
         """
         log("jal", register_abi(rd), hex(imm))
-        self.cpu.register_file[rd] = self.cpu.register_file.pc + 4
-        self.cpu.register_file.pc += imm
+        print("jal, ..pc", self.cpu.register_file.pc)
+        self.cpu.register_file[rd] = self.cpu.register_file.pc #+ 4
+        self.cpu.register_file.pc += imm - 4 # 这里-4，是因为pc 加了4，自动加了4, 需要优化
+        print("jal", "<jump>>------->>", "pc", hex(self.cpu.register_file.pc))
 
     def jalr(self, rd, imm, rs1=1):
         """
@@ -112,10 +114,10 @@ class RV32I(object):
         """
         log("jalr", register_abi(rd), hex(imm), register_abi(rs1))
 
-        t = self.cpu.register_file.pc + 4
+        t = self.cpu.register_file.pc #+ 4
 
         self.cpu.register_file.pc = (self.cpu.register_file[rs1] + imm) & ~1
-
+        print("jalr", "<jump>>------->>", "pc", hex(self.cpu.register_file.pc))
         self.cpu.register_file[rd] = t
 
     def beq(self, rs1, rs2, imm):
@@ -128,7 +130,8 @@ class RV32I(object):
         log("beq", register_abi(rs1), register_abi(rs2), hex(imm))
 
         if self.cpu.register_file[rs1] == self.cpu.register_file[rs2]:
-            self.cpu.register_file.pc += imm
+            self.cpu.register_file.pc += imm - 4
+            print("beq", "<jump>>------->>", "pc", hex(self.cpu.register_file.pc))
 
     def bne(self, rs1, rs2, imm):
         """
@@ -142,7 +145,8 @@ class RV32I(object):
         log("bne", register_abi(rs1), register_abi(rs2), hex(imm))
 
         if self.cpu.register_file[rs1] != self.cpu.register_file[rs2]:
-            self.cpu.register_file.pc += imm
+            self.cpu.register_file.pc += imm - 4
+            print("bne", "<jump>>------->>", "pc", hex(self.cpu.register_file.pc))
 
     def blt(self, rs1, rs2, imm):
         """
@@ -155,7 +159,8 @@ class RV32I(object):
         log("blt", register_abi(rs1), register_abi(rs2), hex(imm))
 
         if self.cpu.register_file[rs1] < self.cpu.register_file[rs2]:
-            self.cpu.register_file.pc += imm
+            self.cpu.register_file.pc += imm - 4
+            print("blt", "<jump>>------->>", "pc", hex(self.cpu.register_file.pc))
 
     def bge(self, rs1, rs2, imm):
         """
@@ -167,7 +172,8 @@ class RV32I(object):
 
         log("bge", register_abi(rs1), register_abi(rs2), hex(imm))
         if self.cpu.register_file[rs1] >= self.cpu.register_file[rs2]:
-            self.cpu.register_file.pc += imm
+            self.cpu.register_file.pc += imm - 4
+            print("bge", "<jump>>------->>", "pc", hex(self.cpu.register_file.pc))
 
     def bltu(self, rs1, rs2, imm):
         """
@@ -179,7 +185,8 @@ class RV32I(object):
         """
         log("bltu", register_abi(rs1), register_abi(rs2), hex(imm))
         if self.cpu.register_file[rs1] < self.cpu.register_file[rs2]:
-            self.cpu.register_file.pc += imm
+            self.cpu.register_file.pc += imm - 4
+            print("bltu", "<jump>>------->>", "pc", hex(self.cpu.register_file.pc))
 
     def bgeu(self, rs1, rs2, imm):
         """
@@ -194,7 +201,8 @@ class RV32I(object):
         log("bgeu", register_abi(rs1), register_abi(rs2), hex(imm))
 
         if self.cpu.register_file[rs1] >= self.cpu.register_file[rs2]:
-            self.cpu.register_file.pc += imm
+            self.cpu.register_file.pc += imm - 4
+            print("bgeu", "<jump>>------->>", "pc", hex(self.cpu.register_file.pc))
 
     def lb(self, rd, imm, rs1):
         """
@@ -234,6 +242,8 @@ class RV32I(object):
         """
         log("lw", register_abi(rd), hex(imm), register_abi(rs1))
         pc = self.cpu.register_file[rs1] + imm
+
+        print("lw", "pc", pc, "rs1", hex(self.cpu.register_file[rs1]), "imm", hex(imm))
 
         self.cpu.register_file[rd] = self.cpu.mem.read_byte(pc, 4)
 
@@ -288,16 +298,16 @@ class RV32I(object):
         addr = self.cpu.register_file[rs1] + imm
         self.cpu.mem.write_byte(addr, rs2 & 0xffff)
 
-    def sw(self, rs1, rs2, imm):
+    def sw(self, rs2, imm,  rs1):
         """
         sw rs2, offset(rs1)
         存字(Store Word). S-type, RV32I and RV64I.
         将 x[rs2]的低位 4 个字节存入内存地址 x[rs1]+sign-extend(offset)。
         压缩形式:c.swsp rs2, offset; c.sw rs2, offset(rs1)
 
-        M[x[rs1] + sext(offset) = x[rs2][31: 0]
+        M[x[rs1] + sext(offset)] = x[rs2][31: 0]
         """
-        log("sw", register_abi(rs1), register_abi(rs2), hex(imm))
+        log("sw",  register_abi(rs2), hex(imm), register_abi(rs1))
         addr = self.cpu.register_file[rs1] + imm
         self.cpu.mem.write_byte(addr, rs2 & 0xffffffff)
 
@@ -622,7 +632,7 @@ class RV32I(object):
         rd = d >> 7 & 0b11111
         funct3 = d >> 12 & 0b111
         rs1 = d >> 15 & 0b11111
-        imm_11_0 = d >> 20 & 0b11111111111
+        imm_11_0 = d >> 20
         imm = imm_11_0
 
         if opcode == 0b1100111:
@@ -680,7 +690,7 @@ class RV32I(object):
         rs2 = d >> 20 & 0b11111
         imm_11_5 = d >> 25 & 0b1111111
 
-        imm = imm_11_5 << 5 + imm_4_0
+        imm = (imm_11_5 << 5) + imm_4_0
         if opcode == 0b0100011:
             if funct3 == 0b000:
                 return self.sb(rs2, imm, rs1)
@@ -704,7 +714,7 @@ class RV32I(object):
         imm_11 = imm_4_1_11 & 0b1
         imm_12 = imm_12_10_5 >> 6
         imm_10_5 = imm_12_10_5 & 0b111111
-        imm = imm_4_1 << 1 + imm_11 << 11 + imm_12 << 12 + imm_10_5 << 5
+        imm = (imm_4_1 << 1) + (imm_11 << 11) + (imm_12 << 12) + (imm_10_5 << 5)
 
         if opcode == 0b1100011:
             if funct3 == 0b000:
@@ -741,16 +751,23 @@ class RV32I(object):
         # log("do_j_type", opcode, d)
         # opcode = d & 0b1111111
         rd = d >> 7 & 0b11111
-        imm_20_10_1_11_19_12 = d >> 12 & 0b1111111111111111111
-
+        imm_20_10_1_11_19_12 = d >> 12
+        print("imm_20_10_1_11_19_12", bin(imm_20_10_1_11_19_12))
         # imm = imm_20_10_1_11_19_12
-        imm_20 = imm_20_10_1_11_19_12 >> 19 & 0b1
+        imm_20 = imm_20_10_1_11_19_12 >> 19
         imm_10_1 = imm_20_10_1_11_19_12 >> 9 & 0b1111111111
         imm_11 = imm_20_10_1_11_19_12 >> 8 & 0b1
         imm_19_12 = imm_20_10_1_11_19_12 & 0b11111111
 
-        imm = imm_20 << 20 + imm_19_12 << 12 + imm_11 << 11 + imm_10_1 << 1
-        imm >>= 1
+        print("imm_20 = ", bin(imm_20))
+        print("imm_10_1 = ", bin(imm_10_1))
+        print("imm_11 = ", bin(imm_11))
+        print("imm_19_12 = ", bin(imm_19_12))
+
+        imm = (imm_20 << 20) + (imm_19_12 << 12) + (imm_11 << 11) + (imm_10_1 << 1)
+        print("imm = ", imm)
+        # imm >>= 1
+        print("imm = ", imm)
 
         if opcode == 0b1101111:
             return self.jal(rd, imm)

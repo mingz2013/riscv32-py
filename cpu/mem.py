@@ -38,23 +38,27 @@ class MEM(object):
             #     i, = struct.unpack('<i', b)
             #     print(bin(i), hex(i))
             #     self.memory.append(b)
-            self.memory = f.read()
+            self.memory = bytearray(f.read())
             # self.max_len = len(self.memory)
             print("load bin: ", "len: ", self.max_len)
 
     def load_instruction(self, pc):
-        print("load_instruction pc: ", pc)
+        print("<< load_instruction pc: ", hex(pc))
         if pc > self.max_len:
             raise Exception(pc, self.max_len)
         b = self.memory[pc:pc + 4]
+        print("load_instruction b:", b)
         i, = struct.unpack('<i', b)
-        print(bin(i), hex(i))
+        print(">> load_instruction ir: ", i, bin(i), hex(i))
         return i
 
     def read_byte(self, pc, len=1):
-        print("read_byte pc: ", pc, "len: ", len)
-        if pc > self.max_len:
-            raise Exception(pc, self.max_len)
+        print("read_byte pc: ", pc, ", len: ", len)
+        if pc >= self.max_len:
+            print("pc > max len...warn")
+            # raise Exception(pc, self.max_len)
+            while pc + len >= self.max_len:
+                self.memory.append(0) # bytearay.append(n)
         b = self.memory[pc:pc + len]
         print("b: ", b)
         i, = struct.unpack('<i', b)
@@ -62,11 +66,15 @@ class MEM(object):
         return i
 
     def write_byte(self, addr, b):
-        print('write_byte: ', addr, b)
-        if addr > self.max_len:
-            raise Exception(addr, self.max_len)
-        for i in range(len(b)):
-            self.memory[addr + i] = b[i]
+        print('write_byte: addr:', addr, ", b: ", hex(b))
+        if addr >= self.max_len:
+            print("pc > max len...warn")
+            while addr >= self.max_len:
+                self.memory.append(0) # bytearay.append(n)
+            # raise Exception(addr, self.max_len)
+        # for i in range(len(b)):
+        #     self.memory[addr + i] = b[i]
+        self.memory[addr] = b
 
     def read_file(self):
         with open('./hello/hello.bin', 'rb') as f:

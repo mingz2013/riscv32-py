@@ -50,7 +50,8 @@ class CPU(object):
         """
         index = 0
         while True:
-            if index > 19:
+            if index > 100:
+                print("index .........break........", index)
                 break
             index += 1
             log("count: ", index)
