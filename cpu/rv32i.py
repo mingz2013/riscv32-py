@@ -95,7 +95,7 @@ class RV32I(object):
 
         """
         log("jal", register_abi(rd), hex(imm))
-        print("jal, ..pc", self.cpu.register_file.pc)
+        print("jal, ..pc", hex(self.cpu.register_file.pc))
         self.cpu.register_file[rd] = self.cpu.register_file.pc #+ 4
         self.cpu.register_file.pc += imm - 4 # 这里-4，是因为pc 加了4，自动加了4, 需要优化
         print("jal", "<jump>>------->>", "pc", hex(self.cpu.register_file.pc))
@@ -588,7 +588,7 @@ class RV32I(object):
 
         """
         log("ecall")
-        raise Exception()
+        # raise Exception()
 
     def ebreak(self):
         """

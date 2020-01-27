@@ -57,7 +57,7 @@ class MEM(object):
         print("read_byte pc: ", hex(pc), ", len: ", len)
         if pc < 0:
             raise Exception('read addr < 0')
-        if pc >= self.max_len:
+        if pc + len >= self.max_len:
             print("pc > max len...warn")
             # raise Exception(pc, self.max_len)
             while pc + len >= self.max_len:
