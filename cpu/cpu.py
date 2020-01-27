@@ -8,13 +8,13 @@ Module Description
 
 """
 
-from .rv32i import RV32I
 from .alu import ALU
 from .exu import EXU
 from .ifu import IFU
 from .lsu import LSU
 from .mem import MEM
 from .register_file import RegisterFile
+from .rv32i import RV32I
 
 
 def log(*args):

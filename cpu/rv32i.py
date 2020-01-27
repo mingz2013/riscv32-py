@@ -84,7 +84,7 @@ class RV32I(object):
         """
         log("auipc", register_abi(rd), hex(imm))
         # self.cpu.register_file.pc += imm << 12
-        self.cpu.register_file[rd] = self.cpu.register_file.pc -4 + (imm << 12)
+        self.cpu.register_file[rd] = self.cpu.register_file.pc - 4 + (imm << 12)
 
     def jal(self, rd, imm):
         """
@@ -96,8 +96,8 @@ class RV32I(object):
         """
         log("jal", register_abi(rd), hex(imm))
         print("jal, ..pc", hex(self.cpu.register_file.pc))
-        self.cpu.register_file[rd] = self.cpu.register_file.pc #+ 4
-        self.cpu.register_file.pc += imm - 4 # 这里-4，是因为pc 加了4，自动加了4, 需要优化
+        self.cpu.register_file[rd] = self.cpu.register_file.pc  # + 4
+        self.cpu.register_file.pc += imm - 4  # 这里-4，是因为pc 加了4，自动加了4, 需要优化
         print("jal", "<jump>>------->>", "pc", hex(self.cpu.register_file.pc))
 
     def jalr(self, rd, imm, rs1=1):
@@ -114,7 +114,7 @@ class RV32I(object):
         """
         log("jalr", register_abi(rd), hex(imm), register_abi(rs1))
 
-        t = self.cpu.register_file.pc #+ 4
+        t = self.cpu.register_file.pc  # + 4
 
         print("jalr", "rs1:", hex(self.cpu.register_file[rs1]), ", imm:", hex(imm))
 
@@ -306,7 +306,7 @@ class RV32I(object):
         v = self.cpu.register_file[rs2] & 0xffff
         self.cpu.mem.write_byte(addr, v)
 
-    def sw(self, rs2, imm,  rs1):
+    def sw(self, rs2, imm, rs1):
         """
         sw rs2, offset(rs1)
         存字(Store Word). S-type, RV32I and RV64I.
@@ -315,7 +315,7 @@ class RV32I(object):
 
         M[x[rs1] + sext(offset)] = x[rs2][31: 0]
         """
-        log("sw",  register_abi(rs2), hex(imm), register_abi(rs1))
+        log("sw", register_abi(rs2), hex(imm), register_abi(rs1))
 
         addr = self.cpu.register_file[rs1] + imm
 

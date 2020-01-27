@@ -44,7 +44,7 @@ class MEM(object):
             print("load bin: ", "len: ", self.max_len)
 
     def load_instruction(self, pc):
-        print("<< load_instruction pc: ", hex(pc), )#", show pc:", hex(pc + 0x10074))
+        print("<< load_instruction pc: ", hex(pc), )  # ", show pc:", hex(pc + 0x10074))
         if pc > self.max_len:
             raise Exception(pc, self.max_len)
         b = self.memory[pc:pc + 4]
@@ -61,7 +61,7 @@ class MEM(object):
             print("pc > max len...warn")
             # raise Exception(pc, self.max_len)
             while pc + len >= self.max_len:
-                self.memory.append(0) # bytearay.append(n)
+                self.memory.append(0)  # bytearay.append(n)
         # print(self.memory)
         b = self.memory[pc:pc + len]
         print("b: ", b)
@@ -80,7 +80,7 @@ class MEM(object):
         if addr + len(bbb) >= self.max_len:
             print("pc > max len...warn")
             while addr + len(bbb) >= self.max_len:
-                self.memory.append(0x0) # bytearay.append(n)
+                self.memory.append(0x0)  # bytearay.append(n)
             # raise Exception(addr, self.max_len)
         # for i in range(len(b)):
         #     self.memory[addr + i] = b[i]
