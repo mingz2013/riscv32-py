@@ -590,7 +590,7 @@ class RV32I(object):
         funct3 = d >> 12 & 0b111
         rs1 = d >> 15 & 0b11111
         rs2 = d >> 20 & 0b11111
-        funct7 = d >> 25 & 0b1111111
+        funct7 = d >> 25
 
         # log("do_r_type <<", bin(funct3), bin(funct7))
 
@@ -688,7 +688,7 @@ class RV32I(object):
         funct3 = d >> 12 & 0b111
         rs1 = d >> 15 & 0b11111
         rs2 = d >> 20 & 0b11111
-        imm_11_5 = d >> 25 & 0b1111111
+        imm_11_5 = d >> 25
 
         imm = (imm_11_5 << 5) + imm_4_0
         if opcode == 0b0100011:
@@ -708,7 +708,7 @@ class RV32I(object):
         funct3 = d >> 12 & 0b111
         rs1 = d >> 15 & 0b11111
         rs2 = d >> 20 & 0b11111
-        imm_12_10_5 = d >> 25 & 0b1111111
+        imm_12_10_5 = d >> 25
 
         imm_4_1 = imm_4_1_11 >> 1
         imm_11 = imm_4_1_11 & 0b1
@@ -736,7 +736,7 @@ class RV32I(object):
         # log("do_u_type << ", bin(opcode), d)
         # opcode = d & 0b1111111
         rd = d >> 7 & 0b11111
-        imm_31_12 = d >> 12 & 0b1111111111111111111
+        imm_31_12 = d >> 12
 
         imm = imm_31_12
 
