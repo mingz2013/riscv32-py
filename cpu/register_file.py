@@ -16,7 +16,7 @@ class RegisterFile(object):
 
     def __init__(self):
         self.registers = [0] * 32
-        self._pc = 0x10090 # 0x1c  # program counter
+        self._pc = 0 # 0x1c  # program counter
         self._ir = 0  # instruction register
 
         self.reset()
@@ -25,17 +25,23 @@ class RegisterFile(object):
         """
         初始化
         """
-        self._pc = 0x10090 # 0x1c  # program counter
+        eip = 0x10090
+        self._pc = eip # 0x1c  # program counter
         self._ir = 0  # instruction register
-        self.sp = self.fp = 0xff # stack pointer, 栈顶指针, frame pointer 栈底指针
+        self.sp = self.fp = 0x30000 # stack pointer, 栈顶指针, frame pointer 栈底指针
 
 
     def __setitem__(self, key, value):
         if key == 0:
             # x0 zero
+            # raise Exception("set x0")
+            # print()
             return
         self.registers[key] = value
         # self.registers[key] &= 0xffffffff
+
+        # if self.sp > self.fp:
+        #     raise Exception("sp > fp", self.sp, self.fp)
 
     def __getitem__(self, item):
         return self.registers[item]
@@ -47,6 +53,8 @@ class RegisterFile(object):
 
     @pc.setter
     def pc(self, i):
+        if i < 0:
+            raise Exception('pc < 0')
         self._pc = i
         self._pc &= 0xffffffff  # 保留32位
 

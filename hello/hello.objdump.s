@@ -27,7 +27,7 @@ Disassembly of section .text:
    100b8:	00000517          	auipc	a0,0x0
    100bc:	39450513          	addi	a0,a0,916 # 1044c <__libc_fini_array>
    100c0:	378000ef          	jal	ra,10438 <atexit>
-   100c4:	0dc000ef          	jal	ra,101a0 <__libc_init_array>
+   100c4:	0dc000ef          	jal	ra,101a0 <__libc_init_array> // 到这里了，
    100c8:	00012503          	lw	a0,0(sp)
    100cc:	00410593          	addi	a1,sp,4
    100d0:	00000613          	li	a2,0
@@ -130,7 +130,7 @@ Disassembly of section .text:
    1022c:	00412483          	lw	s1,4(sp)
    10230:	00012903          	lw	s2,0(sp)
    10234:	01010113          	addi	sp,sp,16
-   10238:	00008067          	ret
+   10238:	00008067          	ret // 跳回来
 
 0001023c <memset>:
    1023c:	00f00313          	li	t1,15

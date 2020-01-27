@@ -62,6 +62,7 @@ class MEM(object):
             # raise Exception(pc, self.max_len)
             while pc + len >= self.max_len:
                 self.memory.append(0) # bytearay.append(n)
+        print(self.memory)
         b = self.memory[pc:pc + len]
         print("b: ", b)
         i, = struct.unpack('<i', b)
@@ -72,14 +73,23 @@ class MEM(object):
         print('write_byte: addr:', addr, ", b: ", hex(b))
         if addr < 0:
             raise Exception('write addr < 0')
-        if addr >= self.max_len:
+
+        bb = struct.pack('<i', b)
+        bbb = bytearray(bb)
+
+        if addr + len(bbb) >= self.max_len:
             print("pc > max len...warn")
-            while addr >= self.max_len:
-                self.memory.append(0) # bytearay.append(n)
+            while addr + len(bbb) >= self.max_len:
+                self.memory.append(0x0) # bytearay.append(n)
             # raise Exception(addr, self.max_len)
         # for i in range(len(b)):
         #     self.memory[addr + i] = b[i]
-        self.memory[addr] = b
+
+        for i, v in enumerate(bbb):
+            print("i, v", i, v)
+            self.memory[addr + i] = v
+
+        # self.memory[addr] = b
 
     def read_file(self):
         with open('./hello/hello.bin', 'rb') as f:

@@ -116,8 +116,12 @@ class RV32I(object):
 
         t = self.cpu.register_file.pc #+ 4
 
+        print("jalr", "rs1:", hex(self.cpu.register_file[rs1]), ", imm:", hex(imm))
+
         self.cpu.register_file.pc = (self.cpu.register_file[rs1] + imm) & ~1
+
         print("jalr", "<jump>>------->>", "pc", hex(self.cpu.register_file.pc))
+
         self.cpu.register_file[rd] = t
 
     def beq(self, rs1, rs2, imm):
@@ -285,8 +289,8 @@ class RV32I(object):
         log("sb", register_abi(rs2), hex(imm), register_abi(rs1))
         addr = self.cpu.register_file[rs1] + imm
 
-
-        self.cpu.mem.write_byte(addr, rs2 & 0xff)
+        v = self.cpu.register_file[rs1] & 0xff
+        self.cpu.mem.write_byte(addr, v)
 
     def sh(self, rs2, imm, rs1):
         """
@@ -299,8 +303,8 @@ class RV32I(object):
         log("sh", register_abi(rs1), register_abi(rs2), hex(imm))
         addr = self.cpu.register_file[rs1] + imm
 
-
-        self.cpu.mem.write_byte(addr, rs2 & 0xffff)
+        v = self.cpu.register_file[rs1] & 0xffff
+        self.cpu.mem.write_byte(addr, v)
 
     def sw(self, rs2, imm,  rs1):
         """
@@ -314,9 +318,11 @@ class RV32I(object):
         log("sw",  register_abi(rs2), hex(imm), register_abi(rs1))
         addr = self.cpu.register_file[rs1] + imm
 
+        v = self.cpu.register_file[rs1] & 0xffffffff
+
         print("sw", "addr:", hex(addr), ", rs1:", self.cpu.register_file[rs1], ", imm:", hex(imm))
 
-        self.cpu.mem.write_byte(addr, rs2 & 0xffffffff)
+        self.cpu.mem.write_byte(addr, v)
 
     def addi(self, rd, rs1, imm):
         """
