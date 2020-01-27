@@ -111,8 +111,11 @@ class RV32I(object):
 
         """
         log("jalr", register_abi(rd), hex(imm), register_abi(rs1))
+
         t = self.cpu.register_file.pc + 4
-        self.cpu.register_file.pc = self.cpu.register_file[rs1] + imm
+
+        self.cpu.register_file.pc = (self.cpu.register_file[rs1] + imm) & ~1
+
         self.cpu.register_file[rd] = t
 
     def beq(self, rs1, rs2, imm):
@@ -123,6 +126,7 @@ class RV32I(object):
         if (rs1 == rs2) pc += sext(offset)
         """
         log("beq", register_abi(rs1), register_abi(rs2), hex(imm))
+
         if self.cpu.register_file[rs1] == self.cpu.register_file[rs2]:
             self.cpu.register_file.pc += imm
 
@@ -136,6 +140,7 @@ class RV32I(object):
 
         """
         log("bne", register_abi(rs1), register_abi(rs2), hex(imm))
+
         if self.cpu.register_file[rs1] != self.cpu.register_file[rs2]:
             self.cpu.register_file.pc += imm
 
@@ -148,6 +153,7 @@ class RV32I(object):
 
         """
         log("blt", register_abi(rs1), register_abi(rs2), hex(imm))
+
         if self.cpu.register_file[rs1] < self.cpu.register_file[rs2]:
             self.cpu.register_file.pc += imm
 
@@ -158,6 +164,7 @@ class RV32I(object):
 
         if (rs1 ≥s rs2) pc += sext(offset)
         """
+
         log("bge", register_abi(rs1), register_abi(rs2), hex(imm))
         if self.cpu.register_file[rs1] >= self.cpu.register_file[rs2]:
             self.cpu.register_file.pc += imm
@@ -185,6 +192,7 @@ class RV32I(object):
 
         """
         log("bgeu", register_abi(rs1), register_abi(rs2), hex(imm))
+
         if self.cpu.register_file[rs1] >= self.cpu.register_file[rs2]:
             self.cpu.register_file.pc += imm
 
@@ -337,6 +345,7 @@ class RV32I(object):
 
         """
         log("sltiu", register_abi(rd), register_abi(rs1), hex(imm))
+        self.cpu.register_file[rd] = 1 if self.cpu.register_file[rs1] < imm else 0
 
     def xori(self, rd, rs1, imm):
         """

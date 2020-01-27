@@ -25,7 +25,7 @@ class RegisterFile(object):
             # x0 zero
             return
         self.registers[key] = value
-        self.registers[key] &= 0xffffffff
+        # self.registers[key] &= 0xffffffff
 
     def __getitem__(self, item):
         return self.registers[item]
@@ -42,7 +42,7 @@ class RegisterFile(object):
     @pc.setter
     def pc(self, i):
         self._pc = i
-        self._pc &= 0xffffffff  # 保留32位
+        # self._pc &= 0xffffffff  # 保留32位
 
     @property
     def zero(self):
