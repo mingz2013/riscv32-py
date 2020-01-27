@@ -21,6 +21,9 @@ class RegisterFile(object):
         self.reset()
 
     def __setitem__(self, key, value):
+        if key == 0:
+            # x0 zero
+            return
         self.registers[key] = value
         self.registers[key] &= 0xffffffff
 

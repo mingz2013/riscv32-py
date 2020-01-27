@@ -8,7 +8,7 @@ Module Description
 
 """
 
-from cpu.instructions import RV32I
+from .rv32i import RV32I
 from .alu import ALU
 from .exu import EXU
 from .ifu import IFU
