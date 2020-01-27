@@ -4,6 +4,8 @@
     <list default="true" id="fa4a3548-ab54-449d-a7db-6f438c417ad8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cpu/cpu.py" beforeDir="false" afterPath="$PROJECT_DIR$/cpu/cpu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cpu/exu.py" beforeDir="false" afterPath="$PROJECT_DIR$/cpu/exu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cpu/ifu.py" beforeDir="false" afterPath="$PROJECT_DIR$/cpu/ifu.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/memory/memory.py" beforeDir="false" afterPath="$PROJECT_DIR$/memory/memory.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/simple/instructions.py" beforeDir="false" afterPath="$PROJECT_DIR$/simple/instructions.py" afterDir="false" />
     </list>
@@ -157,7 +159,8 @@
       <workItem from="1579916709327" duration="353000" />
       <workItem from="1580014347561" duration="10591000" />
       <workItem from="1580028876573" duration="10066000" />
-      <workItem from="1580042122719" duration="19465000" />
+      <workItem from="1580042122719" duration="19718000" />
+      <workItem from="1580098078685" duration="3376000" />
     </task>
     <task id="LOCAL-00001" summary="riscv32">
       <created>1580027474445</created>
@@ -222,7 +225,21 @@
       <option name="project" value="LOCAL" />
       <updated>1580063188838</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="riscv32">
+      <created>1580064017107</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1580064017107</updated>
+    </task>
+    <task id="LOCAL-00011" summary="riscv32">
+      <created>1580064134244</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1580064134244</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,45 +254,53 @@
       <screen x="64" y="23" width="1376" height="877" />
     </state>
     <state x="491" y="271" key="#com.intellij.fileTypes.FileTypeChooser/64.23.1376.877@64.23.1376.877" timestamp="1580047830433" />
-    <state x="303" y="52" key="CommitChangelistDialog2" timestamp="1580064016955">
+    <state x="303" y="52" key="CommitChangelistDialog2" timestamp="1580064134078">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="303" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1580064016955" />
+    <state x="303" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1580064134078" />
     <state x="0" y="0" width="1440" height="900" maximized="true" key="DiffContextDialog" timestamp="1580048230424">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="0" y="0" width="1440" height="900" maximized="true" key="DiffContextDialog/64.23.1376.877@64.23.1376.877" timestamp="1580048063900" />
-    <state width="1398" height="262" key="GridCell.Tab.0.bottom" timestamp="1580057027462">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="262" key="GridCell.Tab.0.bottom" timestamp="1580064882172">
+      <screen x="67" y="23" width="1373" height="877" />
     </state>
     <state width="1398" height="262" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1580057027462" />
-    <state width="1398" height="262" key="GridCell.Tab.0.center" timestamp="1580057027460">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="262" key="GridCell.Tab.0.bottom/67.23.1373.877@67.23.1373.877" timestamp="1580064882172" />
+    <state width="1398" height="262" key="GridCell.Tab.0.center" timestamp="1580064882171">
+      <screen x="67" y="23" width="1373" height="877" />
     </state>
     <state width="1398" height="262" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1580057027460" />
-    <state width="1398" height="262" key="GridCell.Tab.0.left" timestamp="1580057027460">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="262" key="GridCell.Tab.0.center/67.23.1373.877@67.23.1373.877" timestamp="1580064882171" />
+    <state width="1398" height="262" key="GridCell.Tab.0.left" timestamp="1580064882171">
+      <screen x="67" y="23" width="1373" height="877" />
     </state>
     <state width="1398" height="262" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1580057027460" />
-    <state width="1398" height="262" key="GridCell.Tab.0.right" timestamp="1580057027461">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="262" key="GridCell.Tab.0.left/67.23.1373.877@67.23.1373.877" timestamp="1580064882171" />
+    <state width="1398" height="262" key="GridCell.Tab.0.right" timestamp="1580064882172">
+      <screen x="67" y="23" width="1373" height="877" />
     </state>
     <state width="1398" height="262" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1580057027461" />
+    <state width="1398" height="262" key="GridCell.Tab.0.right/67.23.1373.877@67.23.1373.877" timestamp="1580064882172" />
     <state x="221" y="89" key="SettingsEditor" timestamp="1580056440451">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1580056440451" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1580064021712">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1580064164689">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1580064021712" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1580064164689" />
+    <state x="301" y="180" width="837" height="540" key="find.popup" timestamp="1580098976115">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="301" y="180" width="837" height="540" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1580098976115" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/simple/instructions.py</url>
-          <line>475</line>
+          <line>737</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

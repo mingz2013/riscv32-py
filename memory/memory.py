@@ -14,6 +14,11 @@ class Memory(object):
     def __init__(self):
         # 0x0000004c eip
         self.memory = None
+        # self.max_len = 0
+
+    @property
+    def max_len(self):
+        return len(self.memory)
 
     def load_bin(self):
         with open('./hello/hello.bin', 'rb') as f:
@@ -28,22 +33,32 @@ class Memory(object):
             #     print(bin(i), hex(i))
             #     self.memory.append(b)
             self.memory = f.read()
+            # self.max_len = len(self.memory)
+            print("load bin: ", "len: ", self.max_len)
 
     def load_instruction(self, pc):
-        print("pc: ", pc)
+        print("load_instruction pc: ", pc)
+        if pc > self.max_len:
+            raise Exception(pc, self.max_len)
         b = self.memory[pc:pc + 4]
         i, = struct.unpack('<i', b)
         print(bin(i), hex(i))
         return i
 
     def read_byte(self, pc, len=1):
-        print("pc: ", pc)
+        print("read_byte pc: ", pc, "len: ", len)
+        if pc > self.max_len:
+            raise Exception(pc, self.max_len)
         b = self.memory[pc:pc + len]
+        print("b: ", b)
         i, = struct.unpack('<i', b)
         print(bin(i), hex(i))
         return i
 
     def write_byte(self, addr, b):
+        print('write_byte: ', addr, b)
+        if addr > self.max_len:
+            raise Exception(addr, self.max_len)
         for i in range(len(b)):
             self.memory[addr + i] = b[i]
 

@@ -56,7 +56,7 @@ class EXU(object):
         译码
 
         """
-        ir = self.cpu.registerFile.ir
+        ir = self.cpu.register_file.ir
 
         if ir == 0:
             print("b is 0...")

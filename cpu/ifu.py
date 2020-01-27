@@ -38,9 +38,9 @@ class IFU(object):
         """
         取指
         """
-        pc = self.cpu.registerFile.pc
+        pc = self.cpu.register_file.pc
 
-        self.cpu.registerFile.ir = self.cpu.mem.load_instruction(pc)
+        self.cpu.register_file.ir = self.cpu.mem.load_instruction(pc)
 
-        self.cpu.registerFile.pc += 4
+        self.cpu.register_file.pc += 4
 
