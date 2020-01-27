@@ -52,6 +52,7 @@ class CPU(object):
         while True:
             if index > 1000:
                 print("index .........break........", index)
+                self.mem.print_memory()
                 break
             index += 1
             log("count: ", index)

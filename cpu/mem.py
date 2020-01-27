@@ -26,6 +26,9 @@ class MEM(object):
     def max_len(self):
         return len(self.memory)
 
+    def print_memory(self):
+        print(self.memory)
+
     def load_bin(self):
         with open('./hello/hello.bin', 'rb') as f:
             # index = 5
