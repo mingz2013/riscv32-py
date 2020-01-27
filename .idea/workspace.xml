@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa4a3548-ab54-449d-a7db-6f438c417ad8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/image/mem.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cpu/cpu.py" beforeDir="false" afterPath="$PROJECT_DIR$/cpu/cpu.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cpu/mem.py" beforeDir="false" afterPath="$PROJECT_DIR$/cpu/mem.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cpu/register_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/cpu/register_file.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cpu/rv32i.py" beforeDir="false" afterPath="$PROJECT_DIR$/cpu/rv32i.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hello/hello.objdump.s" beforeDir="false" afterPath="$PROJECT_DIR$/hello/hello.objdump.s" afterDir="false" />
     </list>
@@ -153,7 +150,7 @@
       <workItem from="1580014347561" duration="10591000" />
       <workItem from="1580028876573" duration="10066000" />
       <workItem from="1580042122719" duration="19718000" />
-      <workItem from="1580098078685" duration="25240000" />
+      <workItem from="1580098078685" duration="26084000" />
     </task>
     <task id="LOCAL-00001" summary="riscv32">
       <created>1580027474445</created>
@@ -302,7 +299,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580136683171</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="riscv32">
+      <created>1580141553077</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1580141553077</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,10 +321,10 @@
       <screen x="64" y="23" width="1376" height="877" />
     </state>
     <state x="491" y="271" key="#com.intellij.fileTypes.FileTypeChooser/64.23.1376.877@64.23.1376.877" timestamp="1580047830433" />
-    <state x="303" y="52" key="CommitChangelistDialog2" timestamp="1580136682965">
+    <state x="303" y="52" key="CommitChangelistDialog2" timestamp="1580141552832">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="303" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1580136682965" />
+    <state x="303" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1580141552832" />
     <state x="0" y="0" width="1440" height="900" maximized="true" key="DiffContextDialog" timestamp="1580132843944">
       <screen x="64" y="23" width="1376" height="877" />
     </state>
@@ -365,10 +369,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1580056440451" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1580136688966">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1580141559250">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1580136688966" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1580141559250" />
     <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1580132843945">
       <screen x="64" y="23" width="1376" height="877" />
     </state>

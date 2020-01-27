@@ -247,7 +247,7 @@ class RV32I(object):
         log("lw", register_abi(rd), hex(imm), register_abi(rs1))
         pc = self.cpu.register_file[rs1] + imm
 
-        print("lw", "pc", pc, ", rs1", hex(self.cpu.register_file[rs1]), ", imm", hex(imm))
+        print("lw", "pc", hex(pc), ", rs1", hex(self.cpu.register_file[rs1]), ", imm", hex(imm))
 
         self.cpu.register_file[rd] = self.cpu.mem.read_byte(pc, 4)
 
@@ -289,7 +289,7 @@ class RV32I(object):
         log("sb", register_abi(rs2), hex(imm), register_abi(rs1))
         addr = self.cpu.register_file[rs1] + imm
 
-        v = self.cpu.register_file[rs1] & 0xff
+        v = self.cpu.register_file[rs2] & 0xff
         self.cpu.mem.write_byte(addr, v)
 
     def sh(self, rs2, imm, rs1):
@@ -303,7 +303,7 @@ class RV32I(object):
         log("sh", register_abi(rs1), register_abi(rs2), hex(imm))
         addr = self.cpu.register_file[rs1] + imm
 
-        v = self.cpu.register_file[rs1] & 0xffff
+        v = self.cpu.register_file[rs2] & 0xffff
         self.cpu.mem.write_byte(addr, v)
 
     def sw(self, rs2, imm,  rs1):
@@ -316,11 +316,12 @@ class RV32I(object):
         M[x[rs1] + sext(offset)] = x[rs2][31: 0]
         """
         log("sw",  register_abi(rs2), hex(imm), register_abi(rs1))
+
         addr = self.cpu.register_file[rs1] + imm
 
-        v = self.cpu.register_file[rs1] & 0xffffffff
+        v = self.cpu.register_file[rs2]
 
-        print("sw", "addr:", hex(addr), ", rs1:", self.cpu.register_file[rs1], ", imm:", hex(imm))
+        print("sw", "addr:", hex(addr), ", rs1:", hex(v), ", imm:", hex(imm))
 
         self.cpu.mem.write_byte(addr, v)
 

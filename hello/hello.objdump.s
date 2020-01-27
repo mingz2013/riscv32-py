@@ -28,7 +28,7 @@ Disassembly of section .text:
    100bc:	39450513          	addi	a0,a0,916 # 1044c <__libc_fini_array>
    100c0:	378000ef          	jal	ra,10438 <atexit>
    100c4:	0dc000ef          	jal	ra,101a0 <__libc_init_array> // 到这里了，
-   100c8:	00012503          	lw	a0,0(sp)
+   100c8:	00012503          	lw	a0,0(sp) // good, 到这里了
    100cc:	00410593          	addi	a1,sp,4
    100d0:	00000613          	li	a2,0
    100d4:	07c000ef          	jal	ra,10150 <main>
