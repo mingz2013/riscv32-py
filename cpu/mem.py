@@ -18,7 +18,7 @@ class MEM(object):
     """
 
     def __init__(self, cpu):
-        # self.cpu = cpu
+        self.cpu = cpu
         self.memory = None
         self.load_bin()
 
@@ -38,12 +38,13 @@ class MEM(object):
             #     i, = struct.unpack('<i', b)
             #     print(bin(i), hex(i))
             #     self.memory.append(b)
-            self.memory = bytearray(f.read())
+            txt_start_addr = 0x10074
+            self.memory = bytearray([0x0] * txt_start_addr) + bytearray(f.read())
             # self.max_len = len(self.memory)
             print("load bin: ", "len: ", self.max_len)
 
     def load_instruction(self, pc):
-        print("<< load_instruction pc: ", hex(pc))
+        print("<< load_instruction pc: ", hex(pc), )#", show pc:", hex(pc + 0x10074))
         if pc > self.max_len:
             raise Exception(pc, self.max_len)
         b = self.memory[pc:pc + 4]
@@ -54,6 +55,8 @@ class MEM(object):
 
     def read_byte(self, pc, len=1):
         print("read_byte pc: ", pc, ", len: ", len)
+        if pc < 0:
+            raise Exception('read addr < 0')
         if pc >= self.max_len:
             print("pc > max len...warn")
             # raise Exception(pc, self.max_len)
@@ -67,6 +70,8 @@ class MEM(object):
 
     def write_byte(self, addr, b):
         print('write_byte: addr:', addr, ", b: ", hex(b))
+        if addr < 0:
+            raise Exception('write addr < 0')
         if addr >= self.max_len:
             print("pc > max len...warn")
             while addr >= self.max_len:

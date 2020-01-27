@@ -16,9 +16,19 @@ class RegisterFile(object):
 
     def __init__(self):
         self.registers = [0] * 32
-        self._pc = 0x1c  # program counter
+        self._pc = 0x10090 # 0x1c  # program counter
         self._ir = 0  # instruction register
+
         self.reset()
+
+    def reset(self):
+        """
+        初始化
+        """
+        self._pc = 0x10090 # 0x1c  # program counter
+        self._ir = 0  # instruction register
+        self.sp = self.fp = 0xff # stack pointer, 栈顶指针, frame pointer 栈底指针
+
 
     def __setitem__(self, key, value):
         if key == 0:
@@ -30,10 +40,6 @@ class RegisterFile(object):
     def __getitem__(self, item):
         return self.registers[item]
 
-    def reset(self):
-        """
-        初始化
-        """
 
     @property
     def pc(self):
@@ -64,6 +70,10 @@ class RegisterFile(object):
         Stack pointer
         """
         return self.registers[2]
+
+    @sp.setter
+    def sp(self, i):
+        self.registers[2] = i
 
     @property
     def gp(self):
@@ -106,6 +116,10 @@ class RegisterFile(object):
         frame pointer
         """
         return self.registers[8]
+
+    @fp.setter
+    def fp(self, i):
+        self.registers[8] = i
 
     @property
     def s0(self):

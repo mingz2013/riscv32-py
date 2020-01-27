@@ -92,7 +92,7 @@ Disassembly of section .text:
    1019c:	3a4000ef          	jal	ra,10540 <_exit>
 
 000101a0 <__libc_init_array>:
-   101a0:	ff010113          	addi	sp,sp,-16
+   101a0:	ff010113          	addi	sp,sp,-16 // -16
    101a4:	00812423          	sw	s0,8(sp)
    101a8:	01212023          	sw	s2,0(sp)
    101ac:	00011437          	lui	s0,0x11
