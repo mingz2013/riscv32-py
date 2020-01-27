@@ -2,7 +2,6 @@ from cpu.cpu import CPU
 
 
 def main():
-    # simple.run()
 
     cpu = CPU()
     cpu.run()
