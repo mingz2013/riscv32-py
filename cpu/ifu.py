@@ -49,6 +49,7 @@ class IFU(object):
         所以在跳转和分支指令里面，需要先-4.
 
 
+        TODO 分支预测
 
         """
         pc = self.cpu.register_file.pc
