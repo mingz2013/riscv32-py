@@ -591,6 +591,10 @@ class RV32I(object):
         log("fence", hex(pred), hex(succ))
         raise Exception()
 
+    def fence_i(self):
+        """"""
+
+
     def ecall(self):
         """
         环境调用 (Environment Call). I-type, RV32I and RV64I. 通过引发环境调用异常来请求执行环境。
@@ -610,6 +614,32 @@ class RV32I(object):
         """
         log("ebreak")
         raise Exception()
+
+
+    def csrrw(self):
+        """"""
+
+    def csrrs(self):
+        """"""
+
+    def csrrc(self):
+        """"""
+
+    def csrrwi(self):
+        """"""
+
+    def csrrsi(self):
+        """"""
+
+    def csrrci(self):
+        """
+
+        :return:
+        :rtype:
+        """
+
+
+
 
     def do_r_type(self, opcode, d):
         """
