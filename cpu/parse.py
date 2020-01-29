@@ -27,34 +27,48 @@ class Parse(object):
         print(">>>>---->", *args)
 
     def do_cmd_r_type(self, cmd, rd, rs1, rs2):
-        self.log(cmd, register_abi(rd), ",", register_abi(rs1), ",", register_abi(rs2))
+        s = '{cmd} {rd},{rs1},{rs2}'.format(cmd=cmd, rd=register_abi(rd), rs1=register_abi(rs1), rs2=register_abi(rs2))
+        self.log(s)
 
     def do_cmd_i_type(self, cmd, rd, imm, rs1):
-        self.log(cmd, register_abi(rd), ",", hex(imm), ",", register_abi(rs1))
+        s = "{cmd} {rd},{imm},{rs1}".format(cmd=cmd, rd=register_abi(rd), imm=hex(imm), rs1=register_abi(rs1))
+        self.log(s)
 
     def do_cmd_i_type_2(self, cmd, rd, rs1, imm):
-        self.log(cmd, register_abi(rd), ",", register_abi(rs1), ",", hex(imm))
+        # self.log(cmd, register_abi(rd), ",", register_abi(rs1), ",", hex(imm))
+        s = '{cmd} {rd},{rs1},{imm}'.format(cmd=cmd, rd=register_abi(rd), rs1=register_abi(rs1), imm=hex(imm))
+        self.log(s)
 
     def do_cmd_fence(self, cmd, pred, succ):
-        self.log(cmd, hex(pred), ",", hex(succ))
+        # self.log(cmd, hex(pred), ",", hex(succ))
+        s = "{cmd} {pred},{succ}".format(cmd=cmd, pred=hex(pred), succ=hex(succ))
+        self.log(s)
 
     def do_cmd_ecall(self, cmd):
-        self.log(cmd)
+        s = "{cmd}".format(cmd=cmd)
+        self.log(s)
 
     def do_cmd_ebreak(self, cmd):
-        self.log(cmd)
+        s = "{cmd}".format(cmd=cmd)
+        self.log(s)
 
     def do_cmd_s_type(self, cmd, rs2, imm, rs1):
-        self.log(cmd, register_abi(rs2), ",", hex(imm), ",", register_abi(rs1))
+        # self.log(cmd, register_abi(rs2), ",", hex(imm), ",", register_abi(rs1))
+        s = '{cmd} {rs2},{imm},{rs1}'.format(cmd=cmd, rs2=register_abi(rs2), imm=hex(imm), rs1=register_abi(rs1))
+        self.log(s)
 
     def do_cmd_b_type(self, cmd, rs1, rs2, imm):
-        self.log(cmd, register_abi(rs1), ",", register_abi(rs2), ",", hex(imm))
+        # self.log(cmd, register_abi(rs1), ",", register_abi(rs2), ",", hex(imm))
+        s = '{cmd} {rs1},{rs2},{imm}'.format(cmd=cmd, rs1=register_abi(rs1), rs2=register_abi(rs2), imm=hex(imm))
+        self.log(s)
 
     def do_cmd_u_type(self, cmd, rd, imm):
-        self.log(cmd, register_abi(rd), ",", hex(imm))
+        s = "{cmd} {rd},{imm}".format(cmd=cmd, rd=register_abi(rd), imm=hex(imm))
+        self.log(s)
 
     def do_cmd_j_type(self, cmd, rd, imm):
-        self.log(cmd, register_abi(rd), ",", hex(imm))
+        s = "{cmd} {rd},{imm}".format(cmd=cmd, rd=register_abi(rd), imm=hex(imm))
+        self.log(s)
 
     def do_r_type(self, opcode, d):
         """
@@ -326,7 +340,7 @@ class Parse(object):
 
         opcode = d & 0b1111111
         f = instructions_map.get(opcode)
-        assert f, 'opcode error'
+        assert f, 'opcode error:{d}, {hexd}, {bind}'.format(d=d, hexd=hex(d), bind=bin(d))
         return f(opcode, d)
 
     def read_file(self):
