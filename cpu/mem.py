@@ -114,30 +114,8 @@ class MEM(object):
 
         # self.memory[addr] = b
 
-    def read_file(self):
-        with open('./hello/hello.bin', 'rb') as f:
-            index = 20
-            count = 0
-            while True:
-                # while index > 0:
-                index -= 1
-                b = f.read(4)
-                # print("b:", b)
-                if len(b) == 0:
-                    print("over....b == 0")
-                    break
-                # print(type(b), len(b))
-                i, = struct.unpack('<i', b)
-                print(i, type(i), bin(i), hex(i))
-                # print(type(bin(i)))
-                if i == 0:
-                    break
-                # parse(i)
-                count += 1
-                print("count ...", count)
 
-
-if __name__ == '__main__':
+def test_():
     memory = MEM(None)
     m = memory
     m.load_bin()
@@ -147,3 +125,12 @@ if __name__ == '__main__':
     # pc = 0x0000004c
     pc = 0x1c  # offset = 0x10090 - 0x10074, 根据汇编代码的偏移，计算偏移，copy出代码段后，用0+offset = 0x1c， eip
     i = m.load_instruction(pc)
+
+
+# def test_read_file():
+#     MEM.read_file()
+
+
+if __name__ == '__main__':
+    # test_read_file()
+    test_()

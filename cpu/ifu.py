@@ -56,4 +56,4 @@ class IFU(object):
 
         self.cpu.register_file.ir = self.cpu.mem.load_instruction(pc)
 
-        self.cpu.register_file.pc += 4
+        self.cpu.register_file.inc_pc()

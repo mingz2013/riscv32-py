@@ -8,6 +8,8 @@ Module Description
 
 """
 
+from .abi import register_abi
+
 
 # log = print
 
@@ -16,51 +18,6 @@ def log(*args):
     # f_name = sys._getframe().f_code.co_name
     # f_name = sys._getframe().f_back.f_back.f_code.co_name
     print("<< cmd--:======>", *args)
-
-
-def register_abi(r):
-    """
-    abi 翻译
-    :param r:
-    :type r:
-    :return:
-    :rtype:
-    """
-    _register_abi = [
-        'zero',
-        'ra',
-        'sp',
-        'gp',
-        'tp',
-        't0',
-        't1',
-        't2',
-        's0',  # 'fp',
-        's1',
-        'a0',
-        'a1',
-        'a2',
-        'a3',
-        'a4',
-        'a5',
-        'a6',
-        'a7',
-        's2',
-        's3',
-        's4',
-        's5',
-        's6',
-        's7',
-        's8',
-        's9',
-        's10',
-        's11',
-        't3',
-        't4',
-        't5',
-        't6'
-    ]
-    return _register_abi[r]
 
 
 class RV32I(object):
@@ -594,7 +551,6 @@ class RV32I(object):
     def fence_i(self):
         """"""
 
-
     def ecall(self):
         """
         环境调用 (Environment Call). I-type, RV32I and RV64I. 通过引发环境调用异常来请求执行环境。
@@ -614,7 +570,6 @@ class RV32I(object):
         """
         log("ebreak")
         raise Exception()
-
 
     def csrrw(self):
         """"""
@@ -637,9 +592,6 @@ class RV32I(object):
         :return:
         :rtype:
         """
-
-
-
 
     def do_r_type(self, opcode, d):
         """

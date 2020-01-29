@@ -56,6 +56,10 @@ class RegisterFile(object):
         self._pc = i
         self._pc &= 0xffffffff  # 保留32位
 
+    def inc_pc(self):
+        self._pc += 4
+        self._pc &= 0xffffffff  # 保留32位
+
     @property
     def zero(self):
         """

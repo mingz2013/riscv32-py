@@ -2,9 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa4a3548-ab54-449d-a7db-6f438c417ad8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/cpu/mmu.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cpu/abi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cpu/parse.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/riscv32-py.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/riscv32-py.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cpu/cpu.py" beforeDir="false" afterPath="$PROJECT_DIR$/cpu/cpu_.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cpu/ifu.py" beforeDir="false" afterPath="$PROJECT_DIR$/cpu/ifu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cpu/mem.py" beforeDir="false" afterPath="$PROJECT_DIR$/cpu/mem.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cpu/mmu.py" beforeDir="false" afterPath="$PROJECT_DIR$/cpu/mmu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cpu/register_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/cpu/register_file.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cpu/rv32i.py" beforeDir="false" afterPath="$PROJECT_DIR$/cpu/rv32i.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/read_bin.py" beforeDir="false" afterPath="$PROJECT_DIR$/read_bin.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,38 +58,61 @@
       <recent name="$PROJECT_DIR$/cpu" />
     </key>
   </component>
-  <component name="RunManager" selected="Makefile.Makefile (2)">
+  <component name="RunManager" selected="Python.read_bin">
     <configuration name="Makefile (1)" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="" workingDirectory="" arguments="">
-        <envs />
-      </makefile>
-      <method v="2" />
-    </configuration>
-    <configuration name="Makefile (2)" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="" workingDirectory="" arguments="">
-        <envs />
-      </makefile>
-      <method v="2" />
-    </configuration>
-    <configuration name="Makefile (4)" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
       <makefile filename="$PROJECT_DIR$/hello/Makefile" target="" workingDirectory="" arguments="">
         <envs />
       </makefile>
       <method v="2" />
     </configuration>
-    <configuration name="Makefile" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/Makefile" target="" workingDirectory="" arguments="">
-        <envs />
-      </makefile>
-      <method v="2" />
-    </configuration>
-    <configuration name="read_bin" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="mem" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="riscv32-py" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/cpu" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cpu/mem.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="parse" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="riscv32-py" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/cpu" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cpu/parse.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="read_bin" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="riscv32-py" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -97,13 +128,29 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Nosetests in mem.py" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
+      <module name="riscv32-py" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/cpu" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/cpu/mem.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Makefile.Makefile (2)" />
-        <item itemvalue="Makefile.Makefile (1)" />
-        <item itemvalue="Makefile.Makefile" />
         <item itemvalue="Python.read_bin" />
-        <item itemvalue="Makefile.Makefile (4)" />
+        <item itemvalue="Python.parse" />
+        <item itemvalue="Python.mem" />
+        <item itemvalue="Python tests.Nosetests in mem.py" />
+        <item itemvalue="Makefile.Makefile (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -138,7 +185,8 @@
       <workItem from="1580042122719" duration="19718000" />
       <workItem from="1580098078685" duration="29676000" />
       <workItem from="1580152887713" duration="2642000" />
-      <workItem from="1580190354236" duration="294000" />
+      <workItem from="1580190354236" duration="1276000" />
+      <workItem from="1580290071110" duration="4243000" />
     </task>
     <task id="LOCAL-00001" summary="riscv32">
       <created>1580027474445</created>
@@ -343,7 +391,28 @@
       <option name="project" value="LOCAL" />
       <updated>1580157598402</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="riscv32">
+      <created>1580190656335</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1580190656335</updated>
+    </task>
+    <task id="LOCAL-00031" summary="riscv32">
+      <created>1580192825283</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1580192825283</updated>
+    </task>
+    <task id="LOCAL-00032" summary="riscv32">
+      <created>1580294725197</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1580294725197</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -354,38 +423,38 @@
     <option name="LAST_COMMIT_MESSAGE" value="riscv32" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="447" y="255" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1580144157901">
+    <state x="447" y="255" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1580294950561">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="447" y="255" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1580144157901" />
+    <state x="447" y="255" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1580294950561" />
     <state x="491" y="271" key="#com.intellij.fileTypes.FileTypeChooser/64.23.1376.877@64.23.1376.877" timestamp="1580047830433" />
-    <state x="303" y="52" key="CommitChangelistDialog2" timestamp="1580157598238">
+    <state x="303" y="52" key="CommitChangelistDialog2" timestamp="1580294724995">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="303" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1580157598238" />
+    <state x="303" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1580294724995" />
     <state x="0" y="0" width="1440" height="900" maximized="true" key="DiffContextDialog" timestamp="1580132843944">
       <screen x="64" y="23" width="1376" height="877" />
     </state>
     <state x="0" y="0" width="1440" height="900" maximized="true" key="DiffContextDialog/64.23.1376.877@64.23.1376.877" timestamp="1580132843944" />
-    <state width="1398" height="262" key="GridCell.Tab.0.bottom" timestamp="1580157650432">
+    <state width="1398" height="173" key="GridCell.Tab.0.bottom" timestamp="1580298868672">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="262" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1580157650432" />
+    <state width="1398" height="173" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1580298868672" />
     <state width="1398" height="262" key="GridCell.Tab.0.bottom/67.23.1373.877@67.23.1373.877" timestamp="1580064882172" />
-    <state width="1398" height="262" key="GridCell.Tab.0.center" timestamp="1580157650431">
+    <state width="1398" height="173" key="GridCell.Tab.0.center" timestamp="1580298868670">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="262" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1580157650431" />
+    <state width="1398" height="173" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1580298868670" />
     <state width="1398" height="262" key="GridCell.Tab.0.center/67.23.1373.877@67.23.1373.877" timestamp="1580064882171" />
-    <state width="1398" height="262" key="GridCell.Tab.0.left" timestamp="1580157650431">
+    <state width="1398" height="173" key="GridCell.Tab.0.left" timestamp="1580298868670">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="262" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1580157650431" />
+    <state width="1398" height="173" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1580298868670" />
     <state width="1398" height="262" key="GridCell.Tab.0.left/67.23.1373.877@67.23.1373.877" timestamp="1580064882171" />
-    <state width="1398" height="262" key="GridCell.Tab.0.right" timestamp="1580157650432">
+    <state width="1398" height="173" key="GridCell.Tab.0.right" timestamp="1580298868671">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="262" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1580157650432" />
+    <state width="1398" height="173" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1580298868671" />
     <state width="1398" height="262" key="GridCell.Tab.0.right/67.23.1373.877@67.23.1373.877" timestamp="1580064882172" />
     <state width="1398" height="294" key="GridCell.Tab.1.bottom" timestamp="1580151381467">
       <screen x="0" y="0" width="1440" height="900" />
@@ -407,21 +476,24 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1580156986720" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1580157604789">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1580294730983">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1580157604789" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1580294730983" />
     <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1580132843945">
       <screen x="64" y="23" width="1376" height="877" />
     </state>
     <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/64.23.1376.877@64.23.1376.877" timestamp="1580132843945" />
-    <state x="301" y="180" width="837" height="540" key="find.popup" timestamp="1580126596925">
+    <state x="301" y="180" width="837" height="540" key="find.popup" timestamp="1580296272805">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="301" y="180" width="837" height="540" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1580126596925" />
+    <state x="301" y="180" width="837" height="540" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1580296272805" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/riscv32_py$parse.coverage" NAME="parse Coverage Results" MODIFIED="1580298854476" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cpu" />
     <SUITE FILE_PATH="coverage/riscv32_py$simple.coverage" NAME="simple Coverage Results" MODIFIED="1580049665663" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/simple" />
+    <SUITE FILE_PATH="coverage/riscv32_py$Nosetests_in_mem_py.coverage" NAME="Nosetests in mem.py Coverage Results" MODIFIED="1580296579310" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cpu" />
+    <SUITE FILE_PATH="coverage/riscv32_py$mem.coverage" NAME="mem Coverage Results" MODIFIED="1580296624580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cpu" />
     <SUITE FILE_PATH="coverage/riscv32_py$memory.coverage" NAME="memory Coverage Results" MODIFIED="1580053928505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/memory" />
     <SUITE FILE_PATH="coverage/riscv32_py$read_bin.coverage" NAME="read_bin Coverage Results" MODIFIED="1580124369300" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

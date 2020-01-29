@@ -1,4 +1,4 @@
-from cpu.cpu import CPU
+from cpu.cpu_ import CPU
 
 
 def main():
